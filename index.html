@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./css/my_reset.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <script src="./js/common.js" defer></script>
+    <title>레시피</title>
+  </head>
+  <body>
+    <header>
+      <div class="wrap mw">
+        <h1><img src="./img/hd.svg" alt="hd" />레시피에요</h1>
+        <i class="fa-solid fa-bars ham"></i>
+      </div>
+      <nav class="mw">
+        <ul class="gnb">
+          <li data-cate="밥">
+            <div><img src="./img/rice.png" alt="rice" /></div>
+            <span>밥</span>
+          </li>
+          <li data-cate="국">
+            <div><img src="./img/stew.png" alt="stew" /></div>
+            <span>국&찌개</span>
+          </li>
+          <li data-cate="일품">
+            <div><img src="./img/course.png" alt="course" /></div>
+            <span>일품</span>
+          </li>
+          <li data-cate="반찬">
+            <div><img src="./img/side.png" alt="" /></div>
+            <span>반찬</span>
+          </li>
+          <li data-cate="후식">
+            <div><img src="./img/dessert.png" alt="" /></div>
+            <span>후식</span>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="mw">
+      <div class="inputBox">
+        <label class="inputArea"
+          ><input type="text" /><i
+            class="fa-solid fa-magnifying-glass searchBtn"
+          ></i
+        ></label>
+      </div>
+      <div class="textBox">메뉴 리스트</div>
+      <ul class="listCon">
+        <!-- 데이터 출력 영역 -->
+      </ul>
+      <div class="pgCon">
+        <!-- 페이지네이션 출력영역 -->
+      </div>
+      <div class="modalBack">
+        <div class="modal">
+          <div class="mmw">
+            <!-- 데이터 출력 영역 -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      푸터에요
+      <div class="ftImg"><img src="./img/footer.png" alt="ft" /></div>
+    </footer>
+  </body>
+</html>
