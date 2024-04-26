@@ -1,8 +1,10 @@
+const API_KEY = '9b9d1da9843446bd8c23';
 const hamBtn = document.querySelector('.ham');
 const gnb = document.querySelector('header .gnb');
 const listCon = document.querySelector('.listCon');
 const modal = document.querySelector('.modalBack');
 const header = document.querySelector('header');
+const closeBtn = document.querySelector('.closeBtn');
 
 let recipeList = [];
 let total_count = 0;
@@ -14,9 +16,10 @@ let currentPage = 1;
 let startIdx = (page - 1) * itemPerView + 1;
 let endIdx = page * itemPerView;
 
-hamBtn.addEventListener('click', () => {
-  gnb.classList.toggle('on');
-});
+const baseURL = new URL(
+  `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}`
+);
+// new URL이 없으니까 CORS 오류가 생겨요
 
 window.addEventListener('scroll', function () {
   if (window.scrollY > 0) {
@@ -25,8 +28,6 @@ window.addEventListener('scroll', function () {
     header.classList.remove('on');
   }
 });
-
-const API_KEY = '9b9d1da9843446bd8c23';
 
 const fetchFromApi = async (url, category = '밥') => {
   url.searchParams.append('RCP_PAT2', category);
@@ -50,9 +51,7 @@ const searchRecipe = (search) => {
   startIdx = 1;
   endIdx = 20;
   page = 1;
-  const url = new URL(
-    `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}/RCP_NM=${search}`
-  );
+  const url = new URL(`${baseURL}/RCP_NM=${search}`);
   fetchFromApi(url);
 };
 
@@ -71,17 +70,13 @@ document.querySelector('.inputArea>input').addEventListener('keypress', (e) => {
 });
 
 const getRecipe = () => {
-  const url = new URL(
-    `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}`
-  );
+  const url = new URL(baseURL);
   fetchFromApi(url);
   console.log('getURL', url);
 };
 
 const recipeCate = (category) => {
-  const url = new URL(
-    `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}/RCP_PAT2=${category}`
-  );
+  const url = new URL(`${baseURL}/RCP_PAT2=${category}`);
   fetchFromApi(url, category);
 };
 
@@ -94,9 +89,7 @@ gnb.addEventListener('click', (e) => {
 });
 
 const modalCreate = async (rcpName) => {
-  const url = new URL(
-    `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}/RCP_NM=${rcpName}`
-  );
+  const url = new URL(`${baseURL}/RCP_NM=${rcpName}`);
   let recipeList = await fetchFromApi2(url);
   renderManual(recipeList);
 };
@@ -116,6 +109,10 @@ modal.addEventListener('click', function (e) {
     modal.style.display = 'none';
     document.body.style.overflow = 'auto';
   }
+});
+
+closeBtn.addEventListener('click', function () {
+  modal.style.display = 'none';
 });
 
 const createHtml = (recipe) => {
@@ -205,9 +202,7 @@ const moveToPage = async (pageNum, category) => {
   console.log(
     `moveToPage --------------------: startIdx=${startIdx}, endIdx=${endIdx}`
   );
-  const url = new URL(
-    `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}/RCP_PAT2=${category}`
-  );
+  const url = new URL(`${baseURL}/RCP_PAT2=${category}`);
 
   console.log('url 확인', url);
   await fetchFromApi(url, category);
