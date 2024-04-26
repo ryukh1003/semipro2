@@ -6,7 +6,7 @@ const header = document.querySelector('header');
 
 let recipeList = [];
 let total_count = 0;
-let itemPerView = 16;
+let itemPerView = 15;
 let page = 1;
 let groupSize = 5;
 let currentPage = 1;
@@ -34,7 +34,7 @@ const fetchFromApi = async (url, category = '밥') => {
   const response = await fetch(url);
   const data = await response.json();
   total_count = data.COOKRCP01.total_count;
-
+  console.log('---------------------', data);
   recipeList = data.COOKRCP01.row;
   renderRecipe(recipeList);
   pagination(category);
@@ -47,6 +47,9 @@ const fetchFromApi2 = async (url) => {
 };
 
 const searchRecipe = (search) => {
+  startIdx = 1;
+  endIdx = 20;
+  page = 1;
   const url = new URL(
     `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}/RCP_NM=${search}`
   );
@@ -56,12 +59,14 @@ const searchRecipe = (search) => {
 document.querySelector('.searchBtn').addEventListener('click', () => {
   const search = document.querySelector('.inputArea>input').value;
   searchRecipe(search);
+  document.querySelector('.inputArea>input').value = '';
 });
 
 document.querySelector('.inputArea>input').addEventListener('keypress', (e) => {
   if (e.key === 'Enter') {
     const search = document.querySelector('.inputArea>input').value;
     searchRecipe(search);
+    document.querySelector('.inputArea>input').value = '';
   }
 });
 
@@ -70,6 +75,7 @@ const getRecipe = () => {
     `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}`
   );
   fetchFromApi(url);
+  console.log('getURL', url);
 };
 
 const recipeCate = (category) => {
@@ -84,6 +90,7 @@ gnb.addEventListener('click', (e) => {
   if (!li) return;
   let category = li.dataset.cate;
   recipeCate(category);
+  page = 1;
 });
 
 const modalCreate = async (rcpName) => {
@@ -193,11 +200,16 @@ const createRecipe = (recipe) => {
 
 const moveToPage = async (pageNum, category) => {
   page = pageNum;
-  let startIdx = (pageNum - 1) * itemPerView + 1;
-  let endIdx = pageNum * itemPerView;
+  startIdx = (page - 1) * itemPerView + 1;
+  endIdx = page * itemPerView;
+  console.log(
+    `moveToPage --------------------: startIdx=${startIdx}, endIdx=${endIdx}`
+  );
   const url = new URL(
     `http://openapi.foodsafetykorea.go.kr/api/${API_KEY}/COOKRCP01/json/${startIdx}/${endIdx}/RCP_PAT2=${category}`
   );
+
+  console.log('url 확인', url);
   await fetchFromApi(url, category);
 };
 
@@ -217,7 +229,7 @@ const moveToNextGroup = (category) => {
 };
 
 const pagination = (category) => {
-  console.log('asdfasfdsdfdfasdf', category);
+  console.log('category -- ', category);
   let pageGroup = Math.ceil(page / groupSize);
   let currentPage = page;
 
@@ -237,6 +249,7 @@ const pagination = (category) => {
   } onclick="moveToPage(${
     currentPage - 1
   },  '${category}')"><i class="fa-solid fa-angle-left"></i></button>`;
+
   for (let i = firstPage; i <= lastPage; i++) {
     paginationHtml += `<button class="${
       i == page ? 'on' : ''
