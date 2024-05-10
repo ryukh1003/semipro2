@@ -32,8 +32,16 @@
        "RCP_PAT2": "반찬",
        "MANUAL_IMG04": "",
        "MANUAL_IMG05": "",
-       "MANUAL_IMG01": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_1.png",
+       "MANUAL_IMG01": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_1.png",
        "MANUAL01": "1. 손질된 새우를 끓는 물에 데쳐 건진다.a",
+
+
+
+       
+       
+       
+       
+       
        "ATT_FILE_NO_MK": "http://www.foodsafetykorea.go.kr/uploadimg/cook/10_00028_1.png",
        "MANUAL_IMG06": "",
                 "MANUAL_IMG07": "",
