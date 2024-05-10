@@ -7,32 +7,31 @@
 ### 사용한 API
  공공데이터포털 : [링크](http://openapi.foodsafetykorea.go.kr/api/9b9d1da9843446bd8c23/COOKRCP01/json/1/100)
 
-       "row": [ {
-                "RCP_PARTS_DTLS": "새우두부계란찜\n연두부 75g(3/4모), 칵테일새우 20g(5마리), 달걀 30g(1/2개), 생크림 13g(1큰술), 설탕 5g(1작은술), 무염버터 5g(1작은술)\n고명\n시금치 10g(3줄기)",
-                " ": "찌기",
-                "MANUAL_IMG20": "",
-                "MANUAL20": "",
-                "RCP_SEQ": "28",
-                "INFO_NA": "99",
-                "INFO_WGT": "",
-                "INFO_PRO": "14",    
-                "MANUAL_IMG13": "",
-                "MANUAL_IMG14": "",
-                "MANUAL_IMG15": "",
-                "MANUAL_IMG16": "",
-                "MANUAL_IMG10": "",
-                "MANUAL_IMG11": "",
-                "MANUAL_IMG12": "",
-                "MANUAL_IMG17": "",
-                "MANUAL_IMG18": "",
-                "MANUAL_IMG19": "",
-                "INFO_FAT": "17",
-                "HASH_TAG": "연두부",
-                "MANUAL_IMG02": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_2.png",
-                "MANUAL_IMG03": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_3.png",
-                "RCP_PAT2": "반찬",
-                "MANUAL_IMG04": "",
-                "MANUAL_IMG05": "",
+       "row": [ {"RCP_PARTS_DTLS": "새우두부계란찜\n연두부 75g(3/4모), 칵테일새우 20g(5마리), 달걀 30g(1/2개), 생크림 13g(1큰술), 설탕 5g(1작은술), 무염버터 5g(1작은술)\n고명\n시금치 10g(3줄기)",
+       " ": "찌기",
+       "MANUAL_IMG20": "",
+       "MANUAL20": "",
+       "RCP_SEQ": "28",
+       "INFO_NA": "99",
+       "INFO_WGT": "",
+       "INFO_PRO": "14",
+       "MANUAL_IMG13": "",
+       "MANUAL_IMG14": "",
+       "MANUAL_IMG15": "",
+       "MANUAL_IMG16": "",
+       "MANUAL_IMG10": "",
+       "MANUAL_IMG11": "",
+       "MANUAL_IMG12": "",
+       "MANUAL_IMG17": "",
+       "MANUAL_IMG18": "",
+       "MANUAL_IMG19": "",
+       "INFO_FAT": "17",
+       "HASH_TAG": "연두부",
+       "MANUAL_IMG02": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_2.png",
+       "MANUAL_IMG03": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_3.png",
+       "RCP_PAT2": "반찬",
+       "MANUAL_IMG04": "",
+       "MANUAL_IMG05": "",
                 "MANUAL_IMG01": "http://www.foodsafetykorea.go.kr/uploadimg/cook/20_00028_1.png",
                 "MANUAL01": "1. 손질된 새우를 끓는 물에 데쳐 건진다.a",
                 "ATT_FILE_NO_MK": "http://www.foodsafetykorea.go.kr/uploadimg/cook/10_00028_1.png",
@@ -64,6 +63,10 @@
                 "MANUAL13": "",
                 "MANUAL14": ""
             }
+
+
+                
+                
            
 ----
 
